@@ -1,0 +1,19 @@
+name: PHP CS
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  build:
+    name: Lint code check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run CodeSniffer
+        run: make lint
+
