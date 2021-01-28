@@ -1,4 +1,4 @@
-name: CodeSniffer
+name: PHP CI
 
 on:
   - push
