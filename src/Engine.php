@@ -39,12 +39,14 @@ function getProgression($start, $step, $count)
     return $res;
 }
 
-function greeting($task="")
+function greeting($task = "")
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
-    if (!empty($task)) line($task);
+    if (!empty($task)) {
+        line($task);
+    }
     return $name;
 }
 
