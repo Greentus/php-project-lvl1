@@ -39,12 +39,12 @@ function getProgression(int $start, int $step, int $count): array
     return $res;
 }
 
-function greeting(string $task = ""): string
+function greeting(string $task = null): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
-    if (!empty($task)) {
+    if (!is_null($task)) {
         line($task);
     }
     return $name;
@@ -56,7 +56,7 @@ function question(string $text): string
     return prompt('Your answer');
 }
 
-function check(string $answer, string $correct): string
+function check(string $answer, string $correct): bool
 {
     if ($answer == $correct) {
         line('Correct!');

@@ -27,6 +27,8 @@ autoload:
 
 lint:
 	composer run-script phpcs -- --standard=PSR12 src bin
+stan:
+	composer exec --verbose phpstan -- --level=8 analyse src bin
 
 lint-fix:
 	composer exec --verbose phpcbf -- --standard=PSR12 src bin
