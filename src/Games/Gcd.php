@@ -7,7 +7,7 @@ use function Brain\Engine\getGcd;
 
 const MAX_NUMBER = 50;
 
-function gcd()
+function gcd(): void
 {
     $expressions = [];
     for ($i = 1; $i <= \Brain\Engine\MAX_STEPS; $i++) {

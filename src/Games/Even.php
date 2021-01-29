@@ -6,7 +6,7 @@ use function Brain\Engine\game;
 
 const MAX_NUMBER = 100;
 
-function even()
+function even(): void
 {
     $expressions = [];
     for ($i = 1; $i <= \Brain\Engine\MAX_STEPS; $i++) {

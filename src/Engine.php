@@ -7,7 +7,7 @@ use function cli\prompt;
 
 const MAX_STEPS = 3;
 
-function getGcd($a, $b)
+function getGcd(int $a, int $b): int
 {
     while ($b != 0) {
         $m = $a % $b;
@@ -17,7 +17,7 @@ function getGcd($a, $b)
     return $a;
 }
 
-function isPrime($num)
+function isPrime(int $num): bool
 {
     if ($num < 2) {
         return false;
@@ -30,7 +30,7 @@ function isPrime($num)
     return true;
 }
 
-function getProgression($start, $step, $count)
+function getProgression(int $start, int $step, int $count): array
 {
     $res = [];
     for ($i = 0; $i < $count; $i++) {
@@ -39,7 +39,7 @@ function getProgression($start, $step, $count)
     return $res;
 }
 
-function greeting($task = "")
+function greeting(string $task = ""): string
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
@@ -50,13 +50,13 @@ function greeting($task = "")
     return $name;
 }
 
-function question($text)
+function question(string $text): string
 {
     line('Question: %s', $text);
     return prompt('Your answer');
 }
 
-function check($answer, $correct)
+function check(string $answer, string $correct): string
 {
     if ($answer == $correct) {
         line('Correct!');
@@ -67,7 +67,7 @@ function check($answer, $correct)
     }
 }
 
-function game($taskName, $tasks)
+function game(string $taskName, array $tasks): bool
 {
     $name = greeting($taskName);
     foreach ($tasks as $task) {

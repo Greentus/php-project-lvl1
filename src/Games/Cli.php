@@ -4,7 +4,7 @@ namespace Brain\Games\Cli;
 
 use function Brain\Engine\greeting;
 
-function cli()
+function cli(): void
 {
     greeting();
 }

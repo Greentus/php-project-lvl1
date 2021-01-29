@@ -9,7 +9,7 @@ const MAX_NUMBER = 50;
 const PROGR_SIZE = 10;
 
 
-function progression()
+function progression(): void
 {
     $expressions = [];
     for ($i = 1; $i <= \Brain\Engine\MAX_STEPS; $i++) {

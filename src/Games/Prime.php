@@ -7,7 +7,7 @@ use function Brain\Engine\isPrime;
 
 const MAX_NUMBER = 100;
 
-function prime()
+function prime(): void
 {
     $expressions = [];
     for ($i = 1; $i <= \Brain\Engine\MAX_STEPS; $i++) {
