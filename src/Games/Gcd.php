@@ -3,23 +3,16 @@
 namespace Brain\Games\Gcd;
 
 use function Brain\Engine\game;
+use function Brain\Engine\getGcd;
 
-function getGcd($a, $b)
-{
-    while ($b != 0) {
-        $m = $a % $b;
-        $a = $b;
-        $b = $m;
-    }
-    return $a;
-}
+const MAX_NUMBER = 50;
 
 function gcd()
 {
     $expressions = [];
-    for ($i = 1; $i <= 3; $i++) {
-        $num1 = rand(1, 50);
-        $num2 = rand(1, 50);
+    for ($i = 1; $i <= \Brain\Engine\MAX_STEPS; $i++) {
+        $num1 = rand(1, MAX_NUMBER);
+        $num2 = rand(1, MAX_NUMBER);
         $expressions[] = ["{$num1} {$num2}", getGcd($num1, $num2)];
     }
     game('Find the greatest common divisor of given numbers.', $expressions);

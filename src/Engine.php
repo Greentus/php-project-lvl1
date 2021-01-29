@@ -5,12 +5,46 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function greeting($task)
+const MAX_STEPS = 3;
+
+function getGcd($a, $b)
+{
+    while ($b != 0) {
+        $m = $a % $b;
+        $a = $b;
+        $b = $m;
+    }
+    return $a;
+}
+
+function isPrime($num)
+{
+    if ($num < 2) {
+        return false;
+    }
+    for ($i = 2; $i < $num; $i++) {
+        if ($num % $i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function getProgression($start, $step, $count)
+{
+    $res = [];
+    for ($i = 0; $i < $count; $i++) {
+        $res[] = $start + $step * $i;
+    }
+    return $res;
+}
+
+function greeting($task="")
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
-    line($task);
+    if (!empty($task)) line($task);
     return $name;
 }
 
@@ -43,19 +77,4 @@ function game($taskName, $tasks)
     }
     line('Congratulations, %s!', $name);
     return true;
-}
-
-function calc()
-{
-    $opertions = ['+','-','*'];
-    $expressions = [];
-    for ($i = 1; $i <= 3; $i++) {
-        $num1 = rand(1, 25);
-        $num2 = rand(1, 25);
-        $op = rand(0, 2);
-        $expr = $num1 . $opertions[$op] . $num2;
-        eval("\$sum={$expr};");
-        $expressions[] = [$expr,$sum];
-    }
-    game('What is the result of the expression?', $expressions);
 }
